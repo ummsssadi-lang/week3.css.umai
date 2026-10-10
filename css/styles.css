@@ -1,0 +1,206 @@
+/* =========================================
+   BASE STYLES & VARIABLES
+========================================= */
+:root {
+    --bg-color: #f4f4f9;
+    --text-color: #333333;
+    --link-color: #0056b3;
+    --header-bg: #ffffff;
+    --border-color: #dddddd;
+    --focus-outline: #ff9900;
+}
+
+/* Dark Mode Configuration */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #1a1a1a;
+        --text-color: #f4f4f9;
+        --link-color: #66b3ff;
+        --header-bg: #2a2a2a;
+        --border-color: #444444;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--link-color);
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.2s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+a:focus, button:focus {
+    outline: 3px solid var(--focus-outline);
+    outline-offset: 2px;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   TYPOGRAPHY & HEADER
+========================================= */
+.site-header {
+    background: var(--header-bg);
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.student-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+/* =========================================
+   LAYOUT SYSTEMS (CSS GRID & FLEXBOX)
+========================================= */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.layout-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+/* Desktop Layout */
+@media (min-width: 768px) {
+    .layout-grid {
+        grid-template-columns: 250px 1fr;
+    }
+}
+
+/* Navigation Sidebar */
+.main-nav ul {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.main-nav li {
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--header-bg);
+    border-top: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+/* =========================================
+   EXERCISE SPECIFIC STYLES (Example)
+========================================= */
+/* ---- Exercise 8: Flexbox Nav ---- */
+.ex8-nav { 
+    display: flex; 
+    justify-content: space-between; 
+    gap: 0.5rem; 
+    background: var(--header-bg);
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+}
+/* =========================================
+   РЕШЕНИЯ ДЛЯ УПРАЖНЕНИЙ (EX 1 - EX 15)
+========================================= */
+
+/* --- Beginner --- */
+/* Ex 1 */
+.ex1-text { color: blue; font-size: 18px; font-family: Arial, sans-serif; }
+
+/* Ex 2 */
+.highlight { background-color: yellow; color: black; }
+
+/* Ex 3 */
+.ex3-box { width: 200px; padding: 10px; border: 2px solid black; margin: 20px; }
+
+/* Ex 4 */
+.ex4-hex { color: #ff5733; }
+.ex4-rgb { color: rgb(0, 128, 255); }
+.ex4-hsl { color: hsl(120, 60%, 40%); }
+
+/* Ex 5 */
+.ex5-link { color: #333; text-decoration: underline; font-weight: bold; font-size: 18px; transition: color 0.3s; }
+@media (prefers-color-scheme: dark) { .ex5-link { color: #ccc; } }
+.ex5-link:hover { color: red; }
+
+/* --- Intermediate --- */
+/* Ex 6 */
+.ex6-btn { position: fixed; bottom: 20px; right: 20px; padding: 10px 20px; background: #0056b3; color: white; text-decoration: none; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.3); z-index: 1000;}
+
+/* Ex 7 */
+.ex7-card { max-width: 300px; margin: 20px auto; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); text-align: center; background-color: #fff; color: #333; }
+.ex7-card img { width: 100px; height: 100px; border-radius: 50%; margin-bottom: 15px; }
+
+/* Ex 8 */
+.ex8-nav { display: flex; justify-content: space-evenly; align-items: center; background-color: #333; padding: 15px; list-style: none; margin: 0; border-radius: 8px;}
+.ex8-nav a { color: white; text-decoration: none; font-weight: bold; }
+
+/* Ex 9 */
+.ex9-grid { display: grid; grid-template-columns: 30% 70%; gap: 20px; margin-top: 20px; }
+.ex9-sidebar { background: #e2e8f0; padding: 20px; border-radius: 8px; color: #333; }
+.ex9-main { background: #cbd5e1; padding: 20px; border-radius: 8px; color: #333; }
+
+/* Ex 10 */
+.ex10-heading { font-size: 40px; text-align: center; }
+@media (max-width: 600px) { .ex10-heading { font-size: 20px; } }
+
+/* --- Challenging --- */
+/* Ex 11 */
+.ex11-gallery { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.ex11-item { flex: 1 1 calc(25% - 10px); height: 150px; background: #64748b; color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; }
+@media (max-width: 768px) { .ex11-item { flex: 1 1 calc(50% - 10px); } }
+
+/* Ex 12 */
+.ex12-sticky { position: sticky; top: 0; background: #0f172a; color: white; padding: 15px; text-align: center; z-index: 50; }
+.ex12-content { height: 800px; padding: 20px; background: linear-gradient(#f1f5f9, #94a3b8); color: #333;}
+
+/* Ex 13 */
+.ex13-btn { background-color: #0ea5e9; color: white; border: none; padding: 12px 24px; font-size: 16px; border-radius: 5px; cursor: pointer; transition: background-color 0.5s ease; }
+.ex13-btn:hover { background-color: #10b981; }
+
+/* Ex 14 */
+.ex14-layout { display: grid; grid-template-areas: "header header" "sidebar main" "footer footer"; grid-template-columns: 1fr 3fr; gap: 10px; min-height: 400px; }
+.ex14-header { grid-area: header; background: #334155; color: white; padding: 20px; text-align: center; }
+.ex14-sidebar { grid-area: sidebar; background: #94a3b8; padding: 20px; color: #1e293b;}
+.ex14-main { grid-area: main; background: #e2e8f0; padding: 20px; color: #1e293b; }
+.ex14-footer { grid-area: footer; background: #334155; color: white; padding: 20px; text-align: center; }
+
+/* Ex 15 */
+.ex15-cards { display: flex; flex-direction: row; gap: 20px; margin-top: 20px; }
+.ex15-card { flex: 1; padding: 20px; background: #fff; border: 1px solid #ccc; border-radius: 8px; color: #333; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
+@media (max-width: 768px) { .ex15-cards { flex-direction: column; } }
